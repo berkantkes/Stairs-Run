@@ -61,6 +61,8 @@ public class Player : MonoBehaviour
 
         if (Input.GetMouseButton(0) || isFinish)
         {
+            isMouseDown = true;
+
             if (stacksIndex <= 0)
             {
                 rb.useGravity = true;
@@ -77,14 +79,14 @@ public class Player : MonoBehaviour
                 transform.position = Vector3.Lerp(transform.position, transform.position + new Vector3(0, 1.5f, 0), Time.deltaTime * 2);
             }
 
-            isMouseDown = true;
+            
         }
 
         if (Input.GetMouseButtonUp(0))
         {
             if(stacksIndex > 0)
             {
-                transform.position = Vector3.Lerp(transform.position, transform.position + new Vector3(-4f, 4, 0), Time.deltaTime * 10);
+                transform.position = Vector3.Lerp(transform.position, transform.position + new Vector3(-2f, 3, 0), Time.deltaTime * 2);
                 isMouseDown = false;
                 lastStair = null;
                 rb.useGravity = true;
@@ -137,7 +139,7 @@ public class Player : MonoBehaviour
                     }
                     else
                     {
-                        transform.position = Vector3.Lerp(transform.position, transform.position + new Vector3(-4f, 4, 0), Time.deltaTime * 10);
+                        transform.position = Vector3.Lerp(transform.position, transform.position + new Vector3(-2f, 3, 0), Time.deltaTime * 2);
                         isMouseDown = false;
                         lastStair = null;
                         rb.useGravity = true;
@@ -146,7 +148,7 @@ public class Player : MonoBehaviour
                     
                 }
             }
-            yield return new WaitForSeconds(0.0645f);
+            yield return new WaitForSeconds(0.061f);
         }
 
     }
